@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaEE/Cookies/Cookies.iml" filepath="$PROJECT_DIR$/JavaEE/Cookies/Cookies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Core-JAVA/Core-JAVA.iml" filepath="$PROJECT_DIR$/Core-JAVA/Core-JAVA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaEE/EDMS-Servlet/EDMS-Servlet.iml" filepath="$PROJECT_DIR$/JavaEE/EDMS-Servlet/EDMS-Servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaEE/FirstServlet/FirstServlet.iml" filepath="$PROJECT_DIR$/JavaEE/FirstServlet/FirstServlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaEE/ServletExercises/ServletExercises.iml" filepath="$PROJECT_DIR$/JavaEE/ServletExercises/ServletExercises.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaEE/ThreadServlet/ThreadServlet.iml" filepath="$PROJECT_DIR$/JavaEE/ThreadServlet/ThreadServlet.iml" />
+    </modules>
+  </component>
+</project>

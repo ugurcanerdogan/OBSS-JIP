@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ThreadServlet:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ThreadServlet_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ThreadServlet" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="ThreadServlet/web/Web" />
+    </root>
+  </artifact>
+</component>
