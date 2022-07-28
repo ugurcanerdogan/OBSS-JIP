@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>LOG IN PAGE</h1>
-<a href="login">dashboard</a>
+<a href="login">click for log in instantly</a>
 </body>
 </html>

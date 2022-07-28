@@ -15,12 +15,6 @@ public class SessionServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
-        Object isUserLoggedIn = request.getSession().getAttribute("isUserLoggedIn");
-        if (isUserLoggedIn != null) {
-            response.sendRedirect(request.getContextPath() + "/public/home.jsp");
-        } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
-        }
     }
 
     public void destroy() {
