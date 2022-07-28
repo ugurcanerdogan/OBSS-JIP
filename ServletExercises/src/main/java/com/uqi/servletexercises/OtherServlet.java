@@ -13,6 +13,7 @@ import java.io.IOException;
 public class OtherServlet extends HttpServlet {
     String input = "";
     ServletConfig config;
+
     @Override
     public void init(ServletConfig config) throws ServletException {
         this.config = config;
@@ -25,9 +26,9 @@ public class OtherServlet extends HttpServlet {
 
 
         String input = request.getParameter("input");
-        if (input.equals(this.input)){
+        if (input.equals(this.input)) {
             request.getRequestDispatcher("HelloServlet.jsp").forward(request, response);
-        }else {
+        } else {
             request.getRequestDispatcher("login/login_failed.jsp").forward(request, response);
         }
     }

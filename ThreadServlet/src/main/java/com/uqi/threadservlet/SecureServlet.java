@@ -13,7 +13,7 @@ public class SecureServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-        if (request.getRequestURI().contains("secured")){
+        if (request.getRequestURI().contains("secured")) {
             response.sendError(HttpServletResponse.SC_FORBIDDEN);
             System.out.println(request.getRequestURL().toString());
         }

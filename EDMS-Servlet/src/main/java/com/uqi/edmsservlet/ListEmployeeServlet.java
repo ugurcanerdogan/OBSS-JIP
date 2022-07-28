@@ -30,14 +30,14 @@ public class ListEmployeeServlet extends HttpServlet {
 
         OrderField sortParam;
 
-        if (sortBy != null  && sortBy.equals("name")){
+        if (sortBy != null && sortBy.equals("name")) {
             sortParam = OrderField.name;
-        } else if (sortBy != null  && sortBy.equals("surname")) {
+        } else if (sortBy != null && sortBy.equals("surname")) {
             sortParam = OrderField.surname;
-        }else {
+        } else {
             sortParam = OrderField.birth_year;
         }
-        List< Employee > listUser = employeeDAO.listEmployees(sortParam);
+        List<Employee> listUser = employeeDAO.listEmployees(sortParam);
         request.setAttribute("listUser", listUser);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("listEmployee.jsp");
@@ -45,7 +45,7 @@ public class ListEmployeeServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        List< Employee > listUser = employeeDAO.listEmployees(OrderField.name);
+        List<Employee> listUser = employeeDAO.listEmployees(OrderField.name);
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("listEmployee.jsp");
         dispatcher.forward(request, response);

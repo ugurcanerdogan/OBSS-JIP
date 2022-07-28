@@ -29,9 +29,9 @@ public class AddEmployeeServlet extends HttpServlet {
         String title = request.getParameter("title");
         Integer birth_year = Integer.valueOf(request.getParameter("birth_year"));
 
-        Employee newUser = new Employee(id,name,surname,title,birth_year);
+        Employee newUser = new Employee(id, name, surname, title, birth_year);
         employeeDAO.insertEmployee(newUser);
-        response.sendRedirect(request.getContextPath() +"/listEmployee");
+        response.sendRedirect(request.getContextPath() + "/listEmployee");
 
     }
 

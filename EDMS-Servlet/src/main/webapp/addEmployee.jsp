@@ -14,12 +14,12 @@
 
 
 <form action="addEmployee" method="post">
-    <div >
+    <div>
         <label for="id">ID : </label>
         <input type="text" name="id" id="id">
     </div>
     <br><br>
-    <div >
+    <div>
         <label for="name">Name : </label>
         <input type="text" name="name" id="name">
     </div>
@@ -29,12 +29,12 @@
         <input type="text" name="surname" id="surname">
     </div>
     <br><br>
-    <div >
+    <div>
         <label for="title">Title : </label>
         <input type="text" name="title" id="title">
     </div>
     <br><br>
-    <div >
+    <div>
         <label for="birth_year">B.Year : </label>
         <input type="text" name="birth_year" id="birth_year">
     </div>

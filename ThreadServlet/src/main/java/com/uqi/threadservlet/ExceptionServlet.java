@@ -12,11 +12,10 @@ public class ExceptionServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws IOException {
-        if(req.getParameter("error").equals("notFound")){
+        if (req.getParameter("error").equals("notFound")) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
 
-        }
-        else if(req.getParameter("error").equals("servlet")){
+        } else if (req.getParameter("error").equals("servlet")) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 
         }

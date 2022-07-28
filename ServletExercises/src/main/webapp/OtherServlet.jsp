@@ -22,7 +22,7 @@
             <td>Name:</td>
             <td><input type="text" name="input"/></td>
         </tr>
-            <td colspan="2"><input type="submit" value="Go"/></td>
+        <td colspan="2"><input type="submit" value="Go"/></td>
         </tr>
     </table>
 </form>

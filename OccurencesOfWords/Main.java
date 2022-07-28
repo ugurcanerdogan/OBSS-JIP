@@ -16,8 +16,7 @@ public class Main {
 
         } catch (IOException e) {
             System.out.println("File couldn't opened..!");
-        }
-        finally{
+        } finally {
             System.out.println("The program is terminating.");
         }
     }

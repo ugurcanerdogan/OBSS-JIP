@@ -14,7 +14,7 @@ public class Pen {
         }
     }
 
-    public void otherDrawShapeMethod(Shape shape){
+    public void otherDrawShapeMethod(Shape shape) {
         shape.draw();
     }
 

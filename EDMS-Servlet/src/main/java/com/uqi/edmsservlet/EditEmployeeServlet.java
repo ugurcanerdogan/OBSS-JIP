@@ -30,7 +30,7 @@ public class EditEmployeeServlet extends HttpServlet {
 
         employeeDAO.editEmployees(id, name, surname, title, birth_year);
 
-        response.sendRedirect(request.getContextPath() +"/listEmployee");
+        response.sendRedirect(request.getContextPath() + "/listEmployee");
 
     }
 
