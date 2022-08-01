@@ -26,4 +26,10 @@ public class UserController {
 		return ResponseEntity.ok("A successful post request.");
 	}
 
+	@GetMapping("/throwError")
+	public void throwError() throws Exception {
+		LOGGER.info("A successful get ERROR request log inside method.");
+		throw new Exception();
+	}
+
 }
