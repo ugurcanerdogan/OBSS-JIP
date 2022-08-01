@@ -7,6 +7,9 @@
           <element id="module-output" name="EDMS-Servlet" />
           <element id="library" level="project" name="mysql-connector-java-8.0.28" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javax.servlet.jstl" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="EDMS-Servlet/web/Web" />
     </root>

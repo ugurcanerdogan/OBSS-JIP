@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/JavaEE/FirstServlet/FirstServlet.iml" filepath="$PROJECT_DIR$/JavaEE/FirstServlet/FirstServlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaEE/ServletExercises/ServletExercises.iml" filepath="$PROJECT_DIR$/JavaEE/ServletExercises/ServletExercises.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaEE/ThreadServlet/ThreadServlet.iml" filepath="$PROJECT_DIR$/JavaEE/ThreadServlet/ThreadServlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring/spring-demo/spring-demo.iml" filepath="$PROJECT_DIR$/Spring/spring-demo/spring-demo.iml" />
     </modules>
   </component>
 </project>

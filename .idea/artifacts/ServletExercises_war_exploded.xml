@@ -6,6 +6,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="ServletExercises" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javax.servlet.jstl" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="ServletExercises/web/Web" />
     </root>
