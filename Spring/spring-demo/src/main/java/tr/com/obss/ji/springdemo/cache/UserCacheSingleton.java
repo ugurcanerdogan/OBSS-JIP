@@ -14,6 +14,7 @@ import tr.com.obss.ji.springdemo.model.UserDTO;
 
 @Component
 @Scope("singleton")
+// singleton içindeki prototype da singleton gibi çalışır.
 public class UserCacheSingleton {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserCacheSingleton.class);
