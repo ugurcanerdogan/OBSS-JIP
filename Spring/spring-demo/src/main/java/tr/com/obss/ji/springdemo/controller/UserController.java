@@ -1,12 +1,13 @@
-package tr.com.obss.ji.springdemo.contoller;
+package tr.com.obss.ji.springdemo.controller;
+
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import tr.com.obss.ji.springdemo.model.UserDTO;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -21,8 +22,8 @@ public class UserController {
 	}
 
 	@PostMapping("")
-	public ResponseEntity<?> createUser() {
-		LOGGER.info("A successful post request log inside method.");
+	public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO userDTO) {
+		LOGGER.info("User info: {} {}", userDTO.getUsername(), userDTO.getPassword());
 		return ResponseEntity.ok("A successful post request.");
 	}
 
