@@ -34,8 +34,8 @@ public class UserController {
 		return ResponseEntity.ok("A successful post request.");
 	}
 
-	@PostMapping("")
-	public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO userDTO) {
+	@PostMapping("/fakeUser")
+	public ResponseEntity<?> createFakeUser(@Valid @RequestBody UserDTO userDTO) {
 		LOGGER.info("User info: {} {}", userDTO.getUsername(), userDTO.getPassword());
 		return ResponseEntity.ok(userDTO);
 	}
@@ -48,6 +48,13 @@ public class UserController {
 
 	@PostMapping("/appContext")
 	public ResponseEntity<?> createUserOnContext(@Valid @RequestBody UserDTO userDTO) {
+		LOGGER.info("User info: {} {}", userDTO.getUsername(), userDTO.getPassword());
+		return ResponseEntity.ok(userService.saveCache(userDTO));
+
+	}
+
+	@PostMapping("")
+	public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO userDTO) {
 		LOGGER.info("User info: {} {}", userDTO.getUsername(), userDTO.getPassword());
 		return ResponseEntity.ok(userService.save(userDTO));
 

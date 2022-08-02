@@ -25,6 +25,26 @@ public class EntityBase implements Serializable {
 	@Column(name = "OPERATION_TYPE")
 	private String operationType;
 
+	@PrePersist
+	public void onPreSave() {
+		this.setActive(true);
+		this.setCreateDate(new Date());
+		this.setUpdateDate(new Date());
+		this.setOperationType("SAVE");
+	}
+
+	@PreUpdate
+	public void onPreUpdate() {
+		this.setUpdateDate(new Date());
+		this.setOperationType("UPDATE");
+	}
+
+	@PreRemove
+	public void onPreDelete() {
+		this.setUpdateDate(new Date());
+		this.setOperationType("DELETE");
+	}
+
 	public long getId() {
 		return id;
 	}
