@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import tr.com.obss.ji.springdemo.cache.UserCache;
 import tr.com.obss.ji.springdemo.cache.UserCachePrototype;
-import tr.com.obss.ji.springdemo.model.UserDTO;
+import tr.com.obss.ji.springdemo.model.dto.UserDTO;
 
 @Service
 public class UserService {

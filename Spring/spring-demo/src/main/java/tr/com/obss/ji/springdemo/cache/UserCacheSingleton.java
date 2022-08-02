@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import tr.com.obss.ji.springdemo.model.UserDTO;
+import tr.com.obss.ji.springdemo.model.dto.UserDTO;
 
 @Component
 @Scope("singleton")

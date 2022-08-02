@@ -1,18 +1,17 @@
 package tr.com.obss.ji.springdemo.model;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public class UserDTO {
+@Entity
+@Table(name = "Users")
+public class User extends EntityBase {
 
-	@NotBlank
-	@Size(max = 255, min = 3, message = "Please enter a valid username")
-	@Email
+	@Column(name = "USERNAME", length = 255, unique = true)
 	private String username;
 
-	@NotBlank
-	@Size(max = 255, min = 3, message = "Please enter a valid password")
+	@Column(name = "PASSWORD", length = 255)
 	private String password;
 
 	public String getUsername() {

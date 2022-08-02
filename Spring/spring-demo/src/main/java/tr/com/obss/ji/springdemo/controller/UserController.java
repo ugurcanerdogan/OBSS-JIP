@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import tr.com.obss.ji.springdemo.model.UserDTO;
+import tr.com.obss.ji.springdemo.model.dto.UserDTO;
 import tr.com.obss.ji.springdemo.service.UserService;
 
 @RestController

@@ -2,7 +2,7 @@ package tr.com.obss.ji.springdemo.cache;
 
 import java.util.Map;
 
-import tr.com.obss.ji.springdemo.model.UserDTO;
+import tr.com.obss.ji.springdemo.model.dto.UserDTO;
 
 public interface UserCache {
 
