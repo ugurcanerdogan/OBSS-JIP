@@ -1,30 +1,25 @@
 package tr.com.obss.ji.springdemo.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import tr.com.obss.ji.springdemo.cache.UserCachePrototype;
-import tr.com.obss.ji.springdemo.cache.UserCacheSingleton;
 import tr.com.obss.ji.springdemo.model.UserDTO;
+import tr.com.obss.ji.springdemo.service.UserService;
 
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
 
-	private final ApplicationContext applicationContext;
-
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
-	public UserController(ApplicationContext applicationContext) {
-		this.applicationContext = applicationContext;
+	private final UserService userService;
+
+	public UserController(UserService userService) {
+		this.userService = userService;
 	}
 
 	@GetMapping("")
@@ -54,18 +49,8 @@ public class UserController {
 	@PostMapping("/appContext")
 	public ResponseEntity<?> createUserOnContext(@Valid @RequestBody UserDTO userDTO) {
 		LOGGER.info("User info: {} {}", userDTO.getUsername(), userDTO.getPassword());
+		return ResponseEntity.ok(userService.save(userDTO));
 
-		var userCachePrototype = applicationContext.getBean(UserCachePrototype.class);
-		var userCacheSingleton = applicationContext.getBean(UserCacheSingleton.class);
-
-		userCachePrototype.users.put(userDTO.getUsername(), userDTO);
-		userCacheSingleton.users.put(userDTO.getUsername(), userDTO);
-
-		var map = new HashMap<String, Map>();
-		map.put("prototype", userCachePrototype.users);
-		map.put("singleton", userCacheSingleton.users);
-
-		return ResponseEntity.ok(map);
 	}
 
 }

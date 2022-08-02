@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +15,8 @@ import tr.com.obss.ji.springdemo.model.UserDTO;
 
 @Component
 @Scope("singleton")
-// singleton içindeki prototype da singleton gibi çalışır.
-public class UserCacheSingleton {
+@Primary
+public class UserCacheSingleton implements UserCache {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserCacheSingleton.class);
 
@@ -25,6 +26,16 @@ public class UserCacheSingleton {
 	public void init() {
 		LOGGER.info("Singleton bean constructed.");
 		users = new HashMap<>();
+	}
+
+	@Override
+	public void put(String username, UserDTO userDTO) {
+		users.put(username, userDTO);
+	}
+
+	@Override
+	public Map<String, UserDTO> getMap() {
+		return users;
 	}
 
 }

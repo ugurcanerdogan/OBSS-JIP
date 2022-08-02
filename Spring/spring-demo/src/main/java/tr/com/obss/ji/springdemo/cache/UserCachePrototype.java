@@ -15,7 +15,7 @@ import tr.com.obss.ji.springdemo.model.UserDTO;
 
 @Component
 @Scope("prototype")
-public class UserCachePrototype {
+public class UserCachePrototype implements UserCache {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserCachePrototype.class);
 
@@ -30,6 +30,16 @@ public class UserCachePrototype {
 	@PreDestroy
 	public void destroy() {
 		LOGGER.info("Prototype bean destructed/destroyed.");
+	}
+
+	@Override
+	public void put(String username, UserDTO userDTO) {
+		users.put(username, userDTO);
+	}
+
+	@Override
+	public Map<String, UserDTO> getMap() {
+		return users;
 	}
 
 }
