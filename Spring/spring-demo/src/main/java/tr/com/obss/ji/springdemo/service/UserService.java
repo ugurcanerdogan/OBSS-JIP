@@ -3,6 +3,7 @@ package tr.com.obss.ji.springdemo.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import tr.com.obss.ji.springdemo.cache.UserCachePrototype;
 import tr.com.obss.ji.springdemo.model.User;
 import tr.com.obss.ji.springdemo.model.dto.UserDTO;
 import tr.com.obss.ji.springdemo.model.dto.UserUpdateDTO;
+import tr.com.obss.ji.springdemo.repo.RoleRepository;
 import tr.com.obss.ji.springdemo.repo.UserDAO;
 import tr.com.obss.ji.springdemo.repo.UserRepository;
 
@@ -24,6 +26,8 @@ public class UserService {
 
 	private final UserRepository userRepository;
 
+	private final RoleRepository roleRepository;
+
 	private final UserDAO userDAO;
 
 	private final UserCache userCache;
@@ -31,10 +35,11 @@ public class UserService {
 	// @Qualifier("userCacheSingleton") gelebilir userCache argüman öncesine ama, @primary
 	// tercih ettim.
 	public UserService(ApplicationContext applicationContext, UserCache userCache, UserRepository userRepository,
-			UserDAO userDAO) {
+			RoleRepository roleRepository, UserDAO userDAO) {
 		this.applicationContext = applicationContext;
 		this.userCache = userCache;
 		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
 		this.userDAO = userDAO;
 	}
 
@@ -43,7 +48,15 @@ public class UserService {
 		var user = new User();
 		user.setUsername(userDTO.getUsername());
 		user.setPassword(userDTO.getPassword());
+		var userRoleOpt = roleRepository.findByName("ROLE_USER");
+		userRoleOpt.ifPresent((userRole) -> {
+			user.setRoles(Set.of(userRoleOpt.get()));
+		});
 		return userRepository.save(user);
+	}
+
+	public List<User> getUsersWithRole(List<String> roles) {
+		return userRepository.findByRoles_NameIn(roles);
 	}
 
 	public List<User> findAll() {

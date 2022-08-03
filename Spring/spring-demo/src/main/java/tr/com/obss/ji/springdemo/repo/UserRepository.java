@@ -16,6 +16,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	List<User> findByUsernameStartsWithAndActiveTrueOrderByCreateDateDesc(String username);
 
+	List<User> findByRoles_NameIn(List<String> roles);
+
 	@Query(value = "select u from User u where u.id = :id")
 	Optional<User> getByIdHQL(long id);
 

@@ -73,6 +73,12 @@ public class UserController {
 		return ResponseEntity.ok(userService.findAllWithJpaPagination(pageNumber, pageSize));
 	}
 
+	@GetMapping("/has-role-user")
+	public ResponseEntity<List<User>> getUsersWithUserRole() {
+		LOGGER.info("A getByUsername request has been sent.");
+		return ResponseEntity.ok(userService.getUsersWithRole(List.of("ROLE_USER")));
+	}
+
 	@GetMapping("/{userId}")
 	public ResponseEntity<User> getUser(@PathVariable(name = "userId") long id) {
 		LOGGER.info("A getById request has been sent.");
