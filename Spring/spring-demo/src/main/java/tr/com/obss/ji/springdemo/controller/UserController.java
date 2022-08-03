@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import tr.com.obss.ji.springdemo.model.User;
@@ -28,6 +29,9 @@ public class UserController {
 	}
 
 	@GetMapping("")
+	@PreAuthorize("hasRole('ROLE_ADMIN') OR hasRole('ROLE_USER')")
+	// @Secured("ROLE_ADMIN")// - SECURED
+	// @RolesAllowed()// - JSR
 	public ResponseEntity<List<User>> getUsers() {
 		LOGGER.info("A getAll request has been sent.");
 		return ResponseEntity.ok(userService.findAll());

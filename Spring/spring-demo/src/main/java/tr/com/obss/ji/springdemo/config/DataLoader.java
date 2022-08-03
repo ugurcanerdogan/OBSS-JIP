@@ -2,8 +2,8 @@ package tr.com.obss.ji.springdemo.config;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-
 import org.springframework.stereotype.Component;
+
 import tr.com.obss.ji.springdemo.model.Role;
 import tr.com.obss.ji.springdemo.repo.RoleRepository;
 

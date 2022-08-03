@@ -8,10 +8,15 @@ import java.util.Set;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import tr.com.obss.ji.springdemo.cache.UserCache;
 import tr.com.obss.ji.springdemo.cache.UserCachePrototype;
+import tr.com.obss.ji.springdemo.model.MyUserDetails;
 import tr.com.obss.ji.springdemo.model.User;
 import tr.com.obss.ji.springdemo.model.dto.UserDTO;
 import tr.com.obss.ji.springdemo.model.dto.UserUpdateDTO;
@@ -20,7 +25,7 @@ import tr.com.obss.ji.springdemo.repo.UserDAO;
 import tr.com.obss.ji.springdemo.repo.UserRepository;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
 	private final ApplicationContext applicationContext;
 
@@ -30,24 +35,27 @@ public class UserService {
 
 	private final UserDAO userDAO;
 
+	private final PasswordEncoder passwordEncoder;
+
 	private final UserCache userCache;
 
 	// @Qualifier("userCacheSingleton") gelebilir userCache argüman öncesine ama, @primary
 	// tercih ettim.
 	public UserService(ApplicationContext applicationContext, UserCache userCache, UserRepository userRepository,
-			RoleRepository roleRepository, UserDAO userDAO) {
+			RoleRepository roleRepository, UserDAO userDAO, PasswordEncoder passwordEncoder) {
 		this.applicationContext = applicationContext;
 		this.userCache = userCache;
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 		this.userDAO = userDAO;
+		this.passwordEncoder = passwordEncoder;
 	}
 
 	public User save(UserDTO userDTO) {
 
 		var user = new User();
 		user.setUsername(userDTO.getUsername());
-		user.setPassword(userDTO.getPassword());
+		user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 		var userRoleOpt = roleRepository.findByName("ROLE_USER");
 		userRoleOpt.ifPresent((userRole) -> {
 			user.setRoles(Set.of(userRoleOpt.get()));
@@ -106,7 +114,7 @@ public class UserService {
 
 	public User update(long id, UserUpdateDTO userUpdateDTO) {
 		var user = this.findById(id);
-		user.setPassword(userUpdateDTO.getPassword());
+		user.setPassword(passwordEncoder.encode(userUpdateDTO.getPassword()));
 		return userRepository.save(user);
 	}
 
@@ -131,6 +139,12 @@ public class UserService {
 		map.put("singleton", userCacheSingleton.getMap());
 
 		return map;
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		var user = this.findByUsername(username);
+		return new MyUserDetails(user);
 	}
 
 }
