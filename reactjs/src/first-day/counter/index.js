@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 const simpleCounter = () => {
   let counter = 0;
 
-  function getIncrementedCounter(){
+  function getIncrementedCounter() {
     return counter++;
   }
 
-  function incrementCounter(){
+  function incrementCounter() {
     // const counterDiv = <div>{counter++}</div>
-    const counterDiv = <div>{getIncrementedCounter()}</div>
+    const counterDiv = <div>{getIncrementedCounter()}</div>;
     const rootElement = document.getElementById("root");
 
     ReactDOM.render(counterDiv, rootElement);

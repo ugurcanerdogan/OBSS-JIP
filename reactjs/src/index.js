@@ -1,6 +1,9 @@
-// import { renderApp, renderApp1 } from "./App";
-import simpleCounterRenderer from "./first-day/counter";
+//import { renderApp, renderApp1 } from "./App";
+//import simpleCounterRenderer from "./first-day/counter";
+//import helloFrom from "./first-day/hello-from";
+import styleUsage from "./first-day/style-usage";
 
-simpleCounterRenderer();
-
+styleUsage();
+//helloFrom();
+//simpleCounterRenderer();
 // renderApp();
