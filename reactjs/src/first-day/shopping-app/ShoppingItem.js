@@ -8,7 +8,7 @@ const ShoppingItem = (props) => {
           <li>{entity}</li>
         )}
       </ol>
-      <h2>Total item number: {length}</h2>
+      <h4>Total item number: {length}</h4>
     </>
   );
 };

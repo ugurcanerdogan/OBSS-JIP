@@ -6,7 +6,7 @@ const ShoppingList = (props) => {
 
   return (
     <>
-      <h1>Name: {itemType}</h1>
+      <h3>Name: {itemType}</h3>
       <ShoppingItem entities={allItems} size={allItems.length} />
     </>
   );
