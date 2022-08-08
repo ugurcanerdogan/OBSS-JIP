@@ -4,19 +4,27 @@ import React from "react";
 
 class ShoppingApp extends React.Component {
   render() {
-    let { foods, clothes, supplies } = this.props;
 
-    let totalSize = foods.length + clothes.length + supplies.length;
+    const shoppingList = {
+      pageTitle: "Welcome to shopping!",
+      items: [
+        {header: "Food", items: ["Apple", "Bread", "Cheese"]},
+        {header: "Clothes", items: ["Shirt", "Pants", "Hat"]},
+        {header: "Supplies", items: ["Pen", "Paper", "Glue"]},
+      ]
+    }
+    let totalSize = 0;
+
+    shoppingList.items.forEach(element => {
+      totalSize += element.items ? element.items.length : 0
+    });
 
     return (
-      <>
-        <ShoppingTitle message="Welcome to shopping!" size={totalSize} />
-        <ShoppingList allItems={foods} itemType="Foods" />
-        <ShoppingList allItems={clothes} itemType="Clothes" />
-        <ShoppingList allItems={supplies} itemType="Supplies" />
-      </>
+      <div>
+        <ShoppingTitle message = {shoppingList.pageTitle} size = {totalSize}/>
+        {shoppingList.items && shoppingList.items.map(item => <ShoppingList itemType = {item.header} allItems={item.items}/>)}
+      </div>
     );
   }
 }
-
 export default ShoppingApp;
