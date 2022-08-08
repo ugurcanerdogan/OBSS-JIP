@@ -8,7 +8,9 @@
 // import shoppingApp from "./first-day/shopping-app";
 // import helloClass from "./second-day/hello-react";
 import shoppingApp from "./second-day/shopping-app";
+import fooBar from "./second-day/state-example";
 
+// fooBar();
 shoppingApp();
 // helloClass();
 // shoppingApp();
