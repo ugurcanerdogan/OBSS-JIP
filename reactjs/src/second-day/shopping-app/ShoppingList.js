@@ -9,7 +9,7 @@ class ShoppingList extends React.Component {
       <div>
         <h3>Name: {itemType}</h3>
         <ol>
-          {allItems && allItems.map((item) => <ShoppingItem key = {item} item={item}/>)}
+          {allItems && allItems.map((item) => <ShoppingItem key={item} item={item} />)}
         </ol>
       </div>
     );
