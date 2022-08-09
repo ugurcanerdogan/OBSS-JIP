@@ -1,17 +1,17 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-class FooBar extends React.Component{
+class FooBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state={foo: 123, bar:456};
+    this.state = { foo: 123, bar: 456 };
   }
 
   render() {
-    return(
+    return (
       <div>
         foo: {this.state.foo} bar: {this.state.bar}
       </div>
-      );
+    );
   }
 }
 

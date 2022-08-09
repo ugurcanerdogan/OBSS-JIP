@@ -10,7 +10,7 @@ export default function() {
     <StrictMode>
       {/*<FooBar/>*/}
       {/*<ErroneousCounter/>*/}
-      <Counter/>
+      <Counter />
     </StrictMode>,
     rootElement
   );
