@@ -9,9 +9,20 @@
 // import helloClass from "./second-day/hello-react";
 // import shoppingApp from "./second-day/shopping-app";
 // import fooBar from "./second-day/state-example";
-import counter from "./second-day/state-example/";
+// import counter from "./second-day/state-example/";
+// import counter from "./second-day/lifecycle-counter";
+// import carList from "./second-day/lifecycle-methods";
+// import  switch2 from "./second-day/event-handlers";
+// import productList from "./second-day/listing-elements";
+import renderRoutingExample from "./second-day/routing-example"
 
-counter();
+
+renderRoutingExample();
+// productList();
+// switch2();
+// carList();
+// counter();
+// counter();
 // fooBar();
 // shoppingApp();
 // helloClass();
